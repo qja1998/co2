@@ -1,0 +1,36 @@
+settings.py
+: 페이지를 운영하는데 필요한 다양한 설정들
+
+urls.py
+: 사용자가 접속하는 경로에 따라 그 접속을 누가 어떻게 처리할 것인가 -> routing
+  urlpatterns라는 이름의 list를 반드시 정의해야 함 == 라우팅 정보들을 저장
+
+
+manage.py
+: 프로젝트에 필요한 여러 기능이 들어가 있는 유틸리티 파일
+
+django-admin startproject 프로젝트이름 경로(.은 현재 위치)
+python manage.py runserver -> 장고 서버 실행
+
+app
+: project보다 작은 범위
+  연관된 로직들을 모아 그룹핑 하여 프로젝트를 정리
+  각각 urls.py를 지니고 있음
+
+  django-admin startapp 앱이름 -> 앱 만들기
+
+
+Web server
+: apache, nginx, IIS
+  정적임 == 미리 html 파일을 만들어 놓고 요청에 따라 페이지를 보여줌
+
+Web application server
+: django, flask, php, jsp, ROL
+  동적임 == 요청이 들어오면 그 때 데이터를 가져와서 html을 만들어 응답
+
+query string
+: http://localhost:8000/read/?id=1&mode=...
+  ?뒤에 요청하려는 값들을 나열 -> 원하는 데이터를 get
+
+post
+: url이 아닌 header에 정보를 담아 겉으로 보이지 않게 데이터를 보낼 수 있음
