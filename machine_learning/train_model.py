@@ -61,7 +61,7 @@ def train(model, train_loader, val_data, optimizer, criterion, epoch):
         plt.plot(x, true_val, label='true', c='blue')
         plt.plot(x, predictions, label='predictions', c='red')
         plt.legend()
-        plt.imsave(f'./results/{model_name}-{epoch}-{loss / len(val_data):.4f}.png')
+        plt.savefig(f'./results/{model_name}-{epoch}-{loss / len(val_data):.4f}.png')
     
         return loss / len(val_data)
     
@@ -70,20 +70,20 @@ def train(model, train_loader, val_data, optimizer, criterion, epoch):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="lstm, gru, rnn train")
 
-    parser.add_argument('--model_name', dest='model_name', type=str)
-    parser.add_argument('--seq_len', dest='seq_len',type=int, default=100)
+    parser.add_argument('--model_name', dest='model_name', help='rnn|lstm|gru', type=str)
+    parser.add_argument('--seq_len', dest='seq_len',type=int, default=7)
     parser.add_argument('--hidden_szie', dest='hidden_szie', type=int, default=100)
     parser.add_argument('--num_layers', dest='num_layers', type=int, default=1)
     parser.add_argument('--conv_size', dest='conv_size', type=int, default=None)
-    parser.add_argument('--dropout', dest='dropout', type=float, )
-    parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=0.001)
-    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=100)
-    parser.add_argument('--epochs', dest='epochs', type=int, default=10)
+    parser.add_argument('--dropout', dest='dropout', type=float, default=0.1)
+    parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=1e-4)
+    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=256)
+    parser.add_argument('--epochs', dest='epochs', type=int, default=300)
 
     parser.add_argument('--data_path', dest='data_path', type=str)
-    parser.add_argument('--train_rate', dest='train_rate', type=float, default=1.0)
+    parser.add_argument('--train_rate', dest='train_rate', type=float, default=0.8)
     parser.add_argument('--sup_type', dest='sup_type', type=str, default='A')
-    parser.add_argument('--year', dest='year', type=int, default=2013)
+    parser.add_argument('--year', dest='year', type=int, default=None)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
@@ -103,11 +103,9 @@ if __name__ == '__main__':
     year = args.year
 
     df = pd.read_csv(data_path)
-    train_len = int(len(df) * train_rate)
 
     train_dataset, val_dataset = make_dataset(df, seq_len, train_rate, sup_type, year)
-
-    model = Model(seq_len, hidden_szie, num_layers).to(device)
+    model = Model(model_name, seq_len, hidden_szie, num_layers).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     criterion = torch.nn.MSELoss().to(device)
 
