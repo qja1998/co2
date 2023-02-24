@@ -72,19 +72,16 @@ if __name__ == '__main__':
 
     parser.add_argument('--model_name', dest='model_name', help='rnn|lstm|gru', type=str)
     parser.add_argument('--seq_len', dest='seq_len',type=int, default=7)
-    parser.add_argument('--hidden_szie', dest='hidden_szie', type=int, default=100)
+    parser.add_argument('--hidden_szie', dest='hidden_szie', type=int, default=128)
     parser.add_argument('--num_layers', dest='num_layers', type=int, default=1)
     parser.add_argument('--conv_size', dest='conv_size', type=int, default=None)
-<<<<<<< HEAD:train_model.py
-    parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=0.001)
-    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=100)
+    parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=1e-4)
+    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=128)
     parser.add_argument('--epochs', dest='epochs', type=int, default=10)
-=======
     parser.add_argument('--dropout', dest='dropout', type=float, default=0.1)
     parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=1e-4)
-    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=256)
-    parser.add_argument('--epochs', dest='epochs', type=int, default=300)
->>>>>>> f11a79ea237187313be7d5fb79c20ffdfb92c2e1:machine_learning/train_model.py
+    parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=125)
+    parser.add_argument('--epochs', dest='epochs', type=int, default=10)
 
     parser.add_argument('--data_path', dest='data_path', type=str)
     parser.add_argument('--train_rate', dest='train_rate', type=float, default=0.8)
