@@ -75,7 +75,6 @@ if __name__ == '__main__':
     parser.add_argument('--hidden_szie', dest='hidden_szie', type=int, default=100)
     parser.add_argument('--num_layers', dest='num_layers', type=int, default=1)
     parser.add_argument('--conv_size', dest='conv_size', type=int, default=None)
-    parser.add_argument('--dropout', dest='dropout', type=float, )
     parser.add_argument('--learning_rate', dest='learning_rate', type=float, default=0.001)
     parser.add_argument('--batch_szie', dest='batch_szie', type=int, default=100)
     parser.add_argument('--epochs', dest='epochs', type=int, default=10)
