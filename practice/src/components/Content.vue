@@ -1,41 +1,42 @@
 <template>
+    <div class="input-list">
+        <input type="text" id="model_name" placeholder="Model" class="text-box"><br/>
+        <input type="text" id="seq_len" placeholder="Seqeunce length" class="text-box"><br/>
+        <input type="text" id="hidden" placeholder="Dimension of hidden layer" class="text-box"><br/>
+        <input type="text" id="layer_num" placeholder="Number of layer" class="text-box"><br/>
+        <input type="text" id="epochs" placeholder="Epochs" class="text-box"><br/>
+        <input type="text" id="lr" placeholder="Learning rate" class="text-box"><br/>
+        <button @click="increase" class="btn">Train</button> <span>학습된 모델: {{ model_cnt }}</span>
+    </div>
     <div>
-        <v-container fluid>
-            <v-layout column>
-                <v-flex xs12>
-                    <h3 class="subject">User CRUD</h3>
-                </v-flex>
-                <v-flex column>
-                    <v-form ref="form" v-model="valid" lazy-validation>
-                        <input v-model="model_name" type="text" maxlength="4" placeholder="Model name"><br>
-                        <input v-model="seq_len" type="number" placeholder="Sequence length"><br>
-                        <input v-model="hidden" type="number" placeholder="Dimension of hidden layer"><br>
-                        <input v-model="layer_num" type="number" placeholder="Number of layers"><br>
-                        <input v-model="epochs" type="number" placeholder="Epochs"><br>
-                        <input v-model="lr" type="number" placeholder="Learning rate"><br>
-
-                        <button v-on:click="train" style="background: green">create</button>
-                        <button v-on:click="clear" style="background: red">clear</button>
-                    </v-form>
-                </v-flex>
-
-                <v-flex class="userList" column>
-                    <v-card max-width="600" tile>
-                        <v-list-item>
-                            <v-list-item-content>
-                                <v-list-item-title>Title</v-list-item-title>
-                                <v-list-item-subtitle>content</v-list-item-subtitle>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-        </v-container>
+        <!--html 속성 안의 데이터 바인딩-->
+        <img :src="result_img" class="result-img">
+        <!--html 태그 안의 데이터 바인딩 -> {{  }}-->
     </div>
 </template>
 
+<!--
+    ui 현재 상태를 미리 data에 저장(모달창이 열렸는지 닫혔는지)
+    데이터에 따라 ui가 어떻게 보일지 작성(그 상태에 따라 보이거나 숨기기 -> v-if)
+-->
 <script>
-export default {};
+export default {
+    name: 'App',
+    data() {
+        return {  // 자동 랜더링, soft coding (실시간으로 변해야 하는 값들을 바인딩)
+            price : [100],
+            model_cnt: 0,
+            result_img: require('@/assets/lstm-300-13938.png')
+        }
+    },
+    methods: {
+        increase(){
+            this.model_cnt++;
+        }
+    },
+    components: {
+    }
+};
 </script>
 
 <style>
@@ -47,5 +48,18 @@ export default {};
 }
 .userList {
     margin: 30px 0px 30px 0px;
+}
+.input-list {
+    background: darkslateblue;
+    padding: 15px;
+    border-radius: 5px;
+}
+.text-box {
+    color: white;
+    padding: 10px;
+}
+.result-img {
+    width: 90%;
+    margin-top: 40px;
 }
 </style>

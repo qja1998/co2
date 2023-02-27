@@ -9,8 +9,10 @@ let url = "http://localhost:8000/user/";
 
 axios.get(url)
 .then(function(response){
+    console.log('success');
     console.log(response);
 }) //get request success
 .catch(function(response){
+    console.log('fail');
     console.log(response);
 }) //get resuest fail
