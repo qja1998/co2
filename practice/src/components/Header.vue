@@ -1,11 +1,13 @@
 <template>
     <header>
-        <h1>Header</h1>
+        <h1>Model for Time Series</h1>
     </header>
 </template>
 
 <script>
-export default {};
+export default {
+    name : "Header"
+};
 </script>
 
 <style></style>

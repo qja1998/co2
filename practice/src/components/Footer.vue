@@ -1,5 +1,5 @@
 <template>
-    <footer>leffept @ copyright</footer>
+    <footer>gibeom @ copyright</footer>
 </template>
 
 <script>

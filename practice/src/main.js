@@ -5,7 +5,7 @@ createApp(App).mount('#app')
 
 import axios from 'axios';
 
-let url = "http://localhost:8000/user/";
+let url = "http://localhost:8000/";
 
 axios.get(url)
 .then(function(response){
