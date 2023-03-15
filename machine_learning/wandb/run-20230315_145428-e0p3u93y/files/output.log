@@ -1,0 +1,30 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([256, 30]) torch.Size([256, 1])
+torch.Size([185, 30]) torch.Size([185, 1])
+Train Epoch: 300 [0/300 (0%)]	Loss: 18885.841797
+Train Epoch: 300 [100/300 (33%)]	Loss: 4351.445801
+Train Epoch: 300 [200/300 (67%)]	Loss: 3421.087402
+Test set: Average loss: 76202.7812
+Test set: Average loss: 317607.0312
+Train Epoch: 300 [0/300 (0%)]	Loss: 3260.514648
+Train Epoch: 300 [100/300 (33%)]	Loss: 2556.079590
+Train Epoch: 300 [200/300 (67%)]	Loss: 2332.473877
+Test set: Average loss: 47310.7695
+Test set: Average loss: 495751.6562
+Train Epoch: 1000 [0/1000 (0%)]	Loss: 19165.222656
+Train Epoch: 1000 [100/1000 (10%)]	Loss: 3706.586670
+Train Epoch: 1000 [200/1000 (20%)]	Loss: 2049.317871
+Train Epoch: 1000 [300/1000 (30%)]	Loss: 1033.604370
+Train Epoch: 1000 [400/1000 (40%)]	Loss: 1528.453369
+Train Epoch: 1000 [500/1000 (50%)]	Loss: 743.356506
+Train Epoch: 1000 [600/1000 (60%)]	Loss: 552.158569
+Train Epoch: 1000 [700/1000 (70%)]	Loss: 870.321411
+Train Epoch: 1000 [800/1000 (80%)]	Loss: 517.859558
+Train Epoch: 1000 [900/1000 (90%)]	Loss: 669.285217
+Test set: Average loss: 23548.1777
